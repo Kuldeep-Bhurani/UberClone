@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react'
 import tw from 'tailwind-styled-components/dist/tailwind'
 import Map from './components/Map'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import RideSelector from './components/RideSelector'
 
 const confirm = () => {
     const router = useRouter()
     const { pickLoc, dropLoc } = router.query
 
-    const [PickCords, setPickCords] = useState();
-    const [DropCords, setDropCords] = useState();
+    const [PickCords, setPickCords] = useState([0, 0]);
+    const [DropCords, setDropCords] = useState([0, 0]);
 
     const getPickupCords = (pick) => {
         fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${pick}.json?` +
@@ -44,9 +45,14 @@ const confirm = () => {
 
     return (
         <Wrapper>
+            <ButtonContainer>
+                <Link href="/">
+                    <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
+                </Link>
+            </ButtonContainer>
             <Map PickCords={PickCords} DropCords={DropCords} />
             <RideContainer>
-                <RideSelector />
+                <RideSelector PickCords={PickCords} DropCords={DropCords} />
                 <ConfirmBtnContainer>
                     <ConfirmBtn>
                         Confirm
@@ -61,6 +67,14 @@ export default confirm
 
 const Wrapper = tw.div`
     h-screen flex flex-col
+`
+
+const ButtonContainer = tw.div`
+    rounded-full absolute top-4 left-4 bg-white cursor-pointer z-10 shadow-md
+`
+
+const BackButton = tw.img`
+    h-full object-contain
 `
 
 const RideContainer = tw.div`
