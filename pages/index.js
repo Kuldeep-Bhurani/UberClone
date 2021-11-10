@@ -23,7 +23,7 @@ export default function Home() {
         router.push('/login')
       }
     })
-  }, [])
+  }, [router])
 
   return (
     <Wrapper>
@@ -37,7 +37,7 @@ export default function Home() {
           </Profile>
         </Header>
         <ActionButtons>
-          <Link href="/search">
+          <Link href="/search" passHref>
             <ActionButton>
               <ActionBtnImage src="https://i.ibb.co/cyvcpfF/uberx.png" />Ride</ActionButton>
           </ Link>

@@ -9,7 +9,7 @@ const Search = () => {
     return (
         <Wrapper>
             <ButtonContainer>
-                <Link href="/">
+                <Link href="/" passHref>
                     <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
                 </Link>
             </ButtonContainer>
@@ -35,7 +35,7 @@ const Search = () => {
                     pickLoc: Pickup,
                     dropLoc: Drop
                 }
-            }}>
+            }} passHref>
                 <ConfirmBtnContainer>
                     <ConfirmBtn disabled={Pickup.length === 0 || Drop.length === 0}>
                         Confirm Locations
@@ -45,6 +45,8 @@ const Search = () => {
         </Wrapper >
     )
 }
+
+export default Search
 
 const Wrapper = tw.div`
     bg-gray-200 h-screen
@@ -105,5 +107,3 @@ const ConfirmBtnContainer = tw.div`
 const ConfirmBtn = tw.button`
     flex-1 bg-black text-white text-center w-100 p-3 mt-2 items-center mx-4 rounded-full cursor-pointer text-2xl disabled:bg-gray-900
 `
-
-export default Search

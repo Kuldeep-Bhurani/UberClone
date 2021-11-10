@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import RideSelector from './components/RideSelector'
 
-const confirm = () => {
+const Confirm = () => {
     const router = useRouter()
     const { pickLoc, dropLoc } = router.query
 
@@ -46,7 +46,7 @@ const confirm = () => {
     return (
         <Wrapper>
             <ButtonContainer>
-                <Link href="/search">
+                <Link href="/search" passHref>
                     <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
                 </Link>
             </ButtonContainer>
@@ -63,7 +63,7 @@ const confirm = () => {
     )
 }
 
-export default confirm
+export default Confirm
 
 const Wrapper = tw.div`
     h-screen flex flex-col
