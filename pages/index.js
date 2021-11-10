@@ -47,7 +47,7 @@ export default function Home() {
             <ActionBtnImage src="https://i.ibb.co/5RjchBg/uberschedule.png" />Reverse</ActionButton>
         </ActionButtons>
         <InputButton>
-          Where To?
+          Made By - Kuldeep Bhurani
         </InputButton>
       </ActionItems>
     </Wrapper >
