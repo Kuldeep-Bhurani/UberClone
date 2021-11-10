@@ -46,7 +46,7 @@ const confirm = () => {
     return (
         <Wrapper>
             <ButtonContainer>
-                <Link href="/">
+                <Link href="/search">
                     <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
                 </Link>
             </ButtonContainer>
@@ -54,7 +54,7 @@ const confirm = () => {
             <RideContainer>
                 <RideSelector PickCords={PickCords} DropCords={DropCords} />
                 <ConfirmBtnContainer>
-                    <ConfirmBtn>
+                    <ConfirmBtn onClick={() => { alert("Car Booked") }}>
                         Confirm
                     </ConfirmBtn>
                 </ConfirmBtnContainer>
@@ -82,9 +82,9 @@ const RideContainer = tw.div`
 `
 
 const ConfirmBtnContainer = tw.div`
-    border-t-2
+    border-t-2 flex
 `
 
-const ConfirmBtn = tw.div`
-    bg-black text-white mx-4 my-4 py-4 text-center text-xl cursor-pointer
+const ConfirmBtn = tw.button`
+    flex-1 bg-black text-white mx-4 my-4 py-4 text-center text-xl cursor-pointer
 `

@@ -37,7 +37,9 @@ const Search = () => {
                 }
             }}>
                 <ConfirmBtnContainer>
-                    Confirm Locations
+                    <ConfirmBtn disabled={Pickup.length === 0 || Drop.length === 0}>
+                        Confirm Locations
+                    </ConfirmBtn>
                 </ConfirmBtnContainer>
             </Link >
         </Wrapper >
@@ -97,7 +99,11 @@ const StarIcon = tw.img`
 `
 
 const ConfirmBtnContainer = tw.div`
-    bg-black text-white text-center p-3 mt-2 mx-4 rounded-full cursor-pointer text-2xl
+    flex
+`
+
+const ConfirmBtn = tw.button`
+    flex-1 bg-black text-white text-center w-100 p-3 mt-2 items-center mx-4 rounded-full cursor-pointer text-2xl disabled:bg-gray-900
 `
 
 export default Search
